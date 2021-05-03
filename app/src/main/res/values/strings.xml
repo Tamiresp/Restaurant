@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Restaurant</string>
+    <string name="your_order_awaits">Your\nOrder\nAwaits</string>
+    <string name="splashimage">splashImage</string>
 </resources>
