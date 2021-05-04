@@ -2,4 +2,10 @@
     <string name="app_name">Restaurant</string>
     <string name="your_order_awaits">Your\nOrder\nAwaits</string>
     <string name="splashimage">splashImage</string>
+    <string name="home_title">What do you\nhave a taste for?</string>
+    <string name="sub_text">1240 Restaraunts available</string>
+    <string name="order">Order</string>
+    <string name="x_frango_text">200g Bland de frango, queijo, alface, tomate, cebola e molho especial da casa</string>
+    <string name="food_price">R$ 20,00</string>
+    <string name="reviews_text">Reviews</string>
 </resources>
