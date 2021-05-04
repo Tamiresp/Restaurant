@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.MenuItem
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
@@ -23,6 +24,9 @@ class FoodDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_food_detail)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
 
         items.addAll(listOf(Reviews("sdas", "asdas"), Reviews("asjad", "asdag")))
 
@@ -51,5 +55,12 @@ class FoodDetailActivity : AppCompatActivity() {
         val mainIntent = Intent(this, HomeActivity::class.java)
         startActivity(mainIntent)
         finish()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val myIntent = Intent(applicationContext, HomeActivity::class.java)
+        startActivityForResult(myIntent, 0)
+
+        return super.onOptionsItemSelected(item)
     }
 }

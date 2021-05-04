@@ -12,4 +12,6 @@
     <string name="order_done">Seu pedido foi efetuado!</string>
     <string name="time">Tempo de espera: 30 min.</string>
     <string name="ok">OK</string>
+    <string name="hamburgs">Hamburgs</string>
+    <string name="drinks">Drinks</string>
 </resources>
