@@ -20,7 +20,9 @@ class FoodAdapter(var food: ArrayList<Food>, context: Context) :
         holder.bind(food[position])
 
         holder.card.setOnClickListener {
-            val intent = Intent(context, FoodDetailActivity::class.java)
+            val intent = Intent(context, FoodDetailActivity::class.java).apply {
+                putExtra("name", holder.foodName.text)
+            }
             context.startActivity(intent)
         }
     }
@@ -28,7 +30,7 @@ class FoodAdapter(var food: ArrayList<Food>, context: Context) :
     override fun getItemCount() = food.size
 
     inner class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        private val foodName = view.findViewById<TextView>(R.id.name)
+        val foodName: TextView = view.findViewById(R.id.name)
         val card: CardView = view.findViewById(R.id.cardView)
 
         fun bind(food: Food) {
