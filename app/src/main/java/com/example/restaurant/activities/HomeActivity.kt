@@ -1,6 +1,7 @@
 package com.example.restaurant.activities
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,6 +66,8 @@ class HomeActivity : AppCompatActivity() {
             )
         )
 
+        findViewById<TextView>(R.id.date_properties).text = getRoCarrier()
+
         findViewById<RecyclerView>(R.id.hamburg_list).apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = foodsListAdapter
@@ -73,6 +76,15 @@ class HomeActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.drinks_list).apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = drinksListAdapter
+        }
+    }
+
+    fun getRoCarrier(): String {
+        return Class.forName("android.os.SystemProperties").let {
+            it.getDeclaredMethod(
+                "get",
+                String::class.java
+            ).invoke(null, "ro.vendor.build.date") as String
         }
     }
 }
