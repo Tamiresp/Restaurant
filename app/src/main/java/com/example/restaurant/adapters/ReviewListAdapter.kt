@@ -1,10 +1,12 @@
-package com.example.restaurant
+package com.example.restaurant.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.restaurant.R
+import com.example.restaurant.Reviews
 
 class ReviewListAdapter(var reviews: ArrayList<Reviews>) :
     RecyclerView.Adapter<ReviewListAdapter.ReviewViewHolder>() {

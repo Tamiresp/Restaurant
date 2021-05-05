@@ -1,4 +1,4 @@
-package com.example.restaurant
+package com.example.restaurant.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.restaurant.R
+import com.example.restaurant.Reviews
+import com.example.restaurant.adapters.ReviewListAdapter
 
 class FoodDetailActivity : AppCompatActivity() {
     private val items = ArrayList<Reviews>()
@@ -25,14 +28,21 @@ class FoodDetailActivity : AppCompatActivity() {
         val intent = intent
         val name: String? = intent.getStringExtra("name")
         val price: String? = intent.getStringExtra("price")
+        val desc: String? = intent.getStringExtra("description")
 
         supportActionBar?.title = name
 
-        items.addAll(listOf(Reviews("Maria", "Excelente, muito saboroso!"), Reviews("João", "um dos melhores que já provei!")))
+        items.addAll(
+            listOf(
+                Reviews("Maria", "Excelente, muito saboroso!"),
+                Reviews("João", "um dos melhores que já provei!")
+            )
+        )
 
 
         findViewById<TextView>(R.id.food_title).text = name
         findViewById<TextView>(R.id.priceDetail).text = price
+        findViewById<TextView>(R.id.description_food).text = desc
 
         findViewById<RecyclerView>(R.id.reviews_list).apply {
             layoutManager = LinearLayoutManager(context)

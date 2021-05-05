@@ -6,6 +6,11 @@
     <string name="sub_text">1240 Restaurants available</string>
     <string name="order">Comprar</string>
     <string name="x_frango_text">200g Bland de frango, queijo, alface, tomate, cebola e molho especial da casa</string>
+    <string name="picanha_text">400g Bland de picanha, queijo, alface, tomate, cebola e bacon</string>
+    <string name="junior_text">100g Bland de carne bovina, queijo e molho especial da casa</string>
+    <string name="refri_text">Refrigerante de diversas marcas</string>
+    <string name="drink_text">Drink a base de vodka e suco de frutas</string>
+    <string name="cerveja_text">Cerveja de diversas marcas</string>
     <string name="food_price">R$ 20,00</string>
     <string name="reviews_text">Reviews</string>
     <string name="line">line</string>

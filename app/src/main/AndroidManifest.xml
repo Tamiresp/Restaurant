@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Restaurant">
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".activities.SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FoodDetailActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".activities.FoodDetailActivity" />
+        <activity android:name=".activities.HomeActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
