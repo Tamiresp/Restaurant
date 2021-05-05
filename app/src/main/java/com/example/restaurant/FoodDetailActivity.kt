@@ -24,11 +24,15 @@ class FoodDetailActivity : AppCompatActivity() {
 
         val intent = intent
         val name: String? = intent.getStringExtra("name")
+        val price: String? = intent.getStringExtra("price")
+
         supportActionBar?.title = name
 
-        items.addAll(listOf(Reviews("sdas", "asdas"), Reviews("asjad", "asdag")))
+        items.addAll(listOf(Reviews("Maria", "Excelente, muito saboroso!"), Reviews("João", "um dos melhores que já provei!")))
+
 
         findViewById<TextView>(R.id.food_title).text = name
+        findViewById<TextView>(R.id.priceDetail).text = price
 
         findViewById<RecyclerView>(R.id.reviews_list).apply {
             layoutManager = LinearLayoutManager(context)

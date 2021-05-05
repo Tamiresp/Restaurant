@@ -17,8 +17,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        foods.addAll(listOf(Food("X-Frango"), Food("Bacon"), Food("Vegetariano")))
-        drinks.addAll(listOf(Food("Refrigerante"), Food("Caipirinha"), Food("Cerveja")))
+        foods.addAll(listOf(Food("X-Frango", resources.getDrawable(R.drawable.x_frango), "R$20,00"), Food("Picanha", resources.getDrawable(R.drawable.supremo), "R$28,00"), Food("Junior", resources.getDrawable(R.drawable.junior), "R$16,00")))
+        drinks.addAll(listOf(Food("Refrigerante",resources.getDrawable(R.drawable.refrigerante), "R$6,00"), Food("Drinks", resources.getDrawable(R.drawable.drinks2), "R$13,00"), Food("Cervejas", resources.getDrawable(R.drawable.cerveja), "R$7,00")))
 
         findViewById<RecyclerView>(R.id.hamburg_list).apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)

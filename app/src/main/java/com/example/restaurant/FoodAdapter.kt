@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,9 @@ class FoodAdapter(var food: ArrayList<Food>, context: Context) :
         holder.card.setOnClickListener {
             val intent = Intent(context, FoodDetailActivity::class.java).apply {
                 putExtra("name", holder.foodName.text)
+//                putExtra("img", holder.imgHamb.drawable)
+                putExtra("price", holder.price.text)
+
             }
             context.startActivity(intent)
         }
@@ -32,9 +36,13 @@ class FoodAdapter(var food: ArrayList<Food>, context: Context) :
     inner class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val foodName: TextView = view.findViewById(R.id.name)
         val card: CardView = view.findViewById(R.id.cardView)
+        val imgHamb: ImageView = view.findViewById(R.id.imageView)
+        val price: TextView = view.findViewById(R.id.price)
 
         fun bind(food: Food) {
             foodName.text = food.name
+            imgHamb.setImageDrawable(food.img);
+            price.text = food.price
         }
     }
 }
