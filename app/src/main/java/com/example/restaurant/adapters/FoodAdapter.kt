@@ -10,12 +10,12 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurant.Food
-import com.example.restaurant.activities.FoodDetailActivity
 import com.example.restaurant.R
+import com.example.restaurant.activities.FoodDetailActivity
 
-class FoodAdapter(var food: ArrayList<Food>, context: Context) :
+
+class FoodAdapter(private var food: ArrayList<Food>, private val context: Context) :
     RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
-    private val context = context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = FoodViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.food_item, parent, false)
     )
@@ -27,7 +27,7 @@ class FoodAdapter(var food: ArrayList<Food>, context: Context) :
         holder.card.setOnClickListener {
             val intent = Intent(context, FoodDetailActivity::class.java).apply {
                 putExtra("name", holder.foodName.text)
-//                putExtra("img", holder.imgHamb.drawable)
+                putExtra("img", item.img)
                 putExtra("price", holder.price.text)
                 putExtra("description", item.desc)
 
@@ -46,7 +46,7 @@ class FoodAdapter(var food: ArrayList<Food>, context: Context) :
 
         fun bind(food: Food) {
             foodName.text = food.name
-            imgHamb.setImageDrawable(food.img)
+            imgHamb.setImageDrawable(context.getDrawable(food.img))
             price.text = food.price
         }
     }

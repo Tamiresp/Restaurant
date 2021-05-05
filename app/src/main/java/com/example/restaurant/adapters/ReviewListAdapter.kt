@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurant.R
 import com.example.restaurant.Reviews
 
-class ReviewListAdapter(var reviews: ArrayList<Reviews>) :
+class ReviewListAdapter(private var reviews: ArrayList<Reviews>) :
     RecyclerView.Adapter<ReviewListAdapter.ReviewViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ReviewViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.review_item, parent, false)

@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable
 
 data class Food(
     val name: String,
-    val img: Drawable,
+    val img: Int,
     val price: String,
     val desc: String
 )

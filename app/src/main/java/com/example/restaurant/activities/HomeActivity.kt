@@ -24,19 +24,19 @@ class HomeActivity : AppCompatActivity() {
             listOf(
                 Food(
                     "X-Frango",
-                    resources.getDrawable(R.drawable.x_frango),
+                    R.drawable.x_frango,
                     "R$20,00",
                     getString(R.string.x_frango_text)
                 ),
                 Food(
                     "Picanha",
-                    resources.getDrawable(R.drawable.supremo),
+                    R.drawable.supremo,
                     "R$28,00",
                     getString(R.string.picanha_text)
                 ),
                 Food(
                     "Junior",
-                    resources.getDrawable(R.drawable.junior),
+                    R.drawable.junior,
                     "R$16,00",
                     getString(R.string.junior_text)
                 )
@@ -46,19 +46,19 @@ class HomeActivity : AppCompatActivity() {
             listOf(
                 Food(
                     "Refrigerante",
-                    resources.getDrawable(R.drawable.refrigerante),
+                    R.drawable.refrigerante,
                     "R$6,00",
                     getString(R.string.refri_text)
                 ),
                 Food(
                     "Drinks",
-                    resources.getDrawable(R.drawable.drinks2),
+                    R.drawable.drinks2,
                     "R$13,00",
                     getString(R.string.drink_text)
                 ),
                 Food(
                     "Cervejas",
-                    resources.getDrawable(R.drawable.cerveja),
+                    R.drawable.cerveja,
                     "R$7,00",
                     getString(R.string.cerveja_text)
                 )

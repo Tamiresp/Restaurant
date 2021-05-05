@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ class FoodDetailActivity : AppCompatActivity() {
         val name: String? = intent.getStringExtra("name")
         val price: String? = intent.getStringExtra("price")
         val desc: String? = intent.getStringExtra("description")
+        val img = intent.getIntExtra("img", 0)
 
         supportActionBar?.title = name
 
@@ -39,10 +41,10 @@ class FoodDetailActivity : AppCompatActivity() {
             )
         )
 
-
         findViewById<TextView>(R.id.food_title).text = name
         findViewById<TextView>(R.id.priceDetail).text = price
         findViewById<TextView>(R.id.description_food).text = desc
+        findViewById<ImageView>(R.id.food_image).setImageDrawable(getDrawable(img))
 
         findViewById<RecyclerView>(R.id.reviews_list).apply {
             layoutManager = LinearLayoutManager(context)
