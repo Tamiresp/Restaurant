@@ -1,8 +1,11 @@
 package com.example.restaurant.activities
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurant.Food
@@ -66,7 +69,22 @@ class HomeActivity : AppCompatActivity() {
             )
         )
 
-        findViewById<TextView>(R.id.date_properties).text = getRoCarrier()
+        findViewById<CardView>(R.id.cardView).setOnClickListener {
+            if (getRoCarrier() == "hamburger") {
+                findViewById<RecyclerView>(R.id.hamburg_list).visibility = View.VISIBLE
+                findViewById<RecyclerView>(R.id.drinks_list).visibility = View.INVISIBLE
+                findViewById<TextView>(R.id.drinks_title).visibility = View.INVISIBLE
+                findViewById<TextView>(R.id.hamburg_title).visibility = View.VISIBLE
+            }
+
+
+            if (getRoCarrier() == "drink") {
+                findViewById<RecyclerView>(R.id.hamburg_list).visibility = View.INVISIBLE
+                findViewById<RecyclerView>(R.id.drinks_list).visibility = View.VISIBLE
+                findViewById<TextView>(R.id.hamburg_title).visibility = View.INVISIBLE
+                findViewById<TextView>(R.id.drinks_title).visibility = View.VISIBLE
+            }
+        }
 
         findViewById<RecyclerView>(R.id.hamburg_list).apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -77,6 +95,9 @@ class HomeActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = drinksListAdapter
         }
+
+
+
     }
 
     fun getRoCarrier(): String {
@@ -84,7 +105,7 @@ class HomeActivity : AppCompatActivity() {
             it.getDeclaredMethod(
                 "get",
                 String::class.java
-            ).invoke(null, "ro.vendor.build.date") as String
+            ).invoke(null, "persist.food") as String
         }
     }
 }
