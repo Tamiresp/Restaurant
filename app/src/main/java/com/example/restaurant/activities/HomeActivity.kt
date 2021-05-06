@@ -2,10 +2,9 @@ package com.example.restaurant.activities
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurant.Food
@@ -70,19 +69,10 @@ class HomeActivity : AppCompatActivity() {
         )
 
         findViewById<CardView>(R.id.cardView).setOnClickListener {
-            if (getRoCarrier() == "hamburger") {
-                findViewById<RecyclerView>(R.id.hamburg_list).visibility = View.VISIBLE
-                findViewById<RecyclerView>(R.id.drinks_list).visibility = View.INVISIBLE
-                findViewById<TextView>(R.id.drinks_title).visibility = View.INVISIBLE
-                findViewById<TextView>(R.id.hamburg_title).visibility = View.VISIBLE
-            }
-
-
-            if (getRoCarrier() == "drink") {
-                findViewById<RecyclerView>(R.id.hamburg_list).visibility = View.INVISIBLE
-                findViewById<RecyclerView>(R.id.drinks_list).visibility = View.VISIBLE
-                findViewById<TextView>(R.id.hamburg_title).visibility = View.INVISIBLE
-                findViewById<TextView>(R.id.drinks_title).visibility = View.VISIBLE
+            when(getPropertie()) {
+                "hamburger" -> visibilityHamburger()
+                "drink" -> visibilityDrink()
+                else -> visibilityFull()
             }
         }
 
@@ -95,17 +85,29 @@ class HomeActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = drinksListAdapter
         }
-
-
-
     }
 
-    fun getRoCarrier(): String {
+    fun getPropertie(): String {
         return Class.forName("android.os.SystemProperties").let {
             it.getDeclaredMethod(
                 "get",
                 String::class.java
             ).invoke(null, "persist.food") as String
         }
+    }
+
+    private fun visibilityHamburger() {
+        findViewById<ConstraintLayout>(R.id.hamburger_layout).visibility = View.VISIBLE
+        findViewById<ConstraintLayout>(R.id.drinks_layout).visibility = View.GONE
+    }
+
+    private fun visibilityDrink() {
+        findViewById<ConstraintLayout>(R.id.hamburger_layout).visibility = View.GONE
+        findViewById<ConstraintLayout>(R.id.drinks_layout).visibility = View.VISIBLE
+    }
+
+    private fun visibilityFull() {
+        findViewById<ConstraintLayout>(R.id.hamburger_layout).visibility = View.VISIBLE
+        findViewById<ConstraintLayout>(R.id.drinks_layout).visibility = View.VISIBLE
     }
 }
